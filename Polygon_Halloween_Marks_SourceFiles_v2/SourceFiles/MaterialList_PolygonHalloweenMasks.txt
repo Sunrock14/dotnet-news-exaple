@@ -1,0 +1,115 @@
+-------------------
+Folder Name: Prefabs
+-------------------
+Prefab Name: SM_Plague_Mask
+    Mesh Name: SM_Plague_Mask
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Plague_Mask_Strap
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+
+Prefab Name: SM_Prop_Alpaca_Mask_Angel
+    Mesh Name: SM_Prop_Alpaca_Mask_Angel
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Devil_Ears
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Glasses
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Halo
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Mohawk
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Pirate_Eyepatch
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Pirate_Hat
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Witch_Hat
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+
+Prefab Name: SM_Prop_Alpaca_Mask_Devil
+    Mesh Name: SM_Prop_Alpaca_Mask_Devil
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Devil_Ears
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Glasses
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Halo
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Mohawk
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Pirate_Eyepatch
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Pirate_Hat
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Witch_Hat
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+
+Prefab Name: SM_Prop_Alpaca_Mask_Pirate
+    Mesh Name: SM_Prop_Alpaca_Mask_Pirate
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Devil_Ears
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Glasses
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Halo
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Mohawk
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Pirate_Eyepatch
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Pirate_Hat
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Witch_Hat
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+
+Prefab Name: SM_Prop_Alpaca_Mask_Rockstar
+    Mesh Name: SM_Prop_Alpaca_Mask_Rockstar
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Devil_Ears
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Glasses
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Halo
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Mohawk
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Pirate_Eyepatch
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Pirate_Hat
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Witch_Hat
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+
+Prefab Name: SM_Prop_Alpaca_Mask_Witch
+    Mesh Name: SM_Prop_Alpaca_Mask_Witch
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Devil_Ears
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Glasses
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Halo
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Mohawk
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Pirate_Eyepatch
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Pirate_Hat
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Alpaca_Witch_Hat
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+
+Prefab Name: SM_Prop_Demonic_Mask
+    Mesh Name: SM_Prop_Demonic_Mask
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_Demonic_Mask_Strap
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+
+Prefab Name: SM_Prop_LED_Mask
+    Mesh Name: SM_Prop_LED_Mask
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+    Mesh Name: SM_Prop_LED_Mask_Strap
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+
+Prefab Name: SM_Prop_Pumpkin_Mask
+    Mesh Name: SM_Prop_Pumpkin_Mask
+        Slot: PolygonMasks_Material (Polygon_Mask_Texture)
+
