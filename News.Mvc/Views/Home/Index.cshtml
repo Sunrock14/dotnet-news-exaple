@@ -1,34 +1,186 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model DataResponse<GetNewsDto>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "News";
 }
-@section css{
-
-}
+<div class="search-bar">
+    <input type="text" id="searchTextBox" placeholder="Haber ara..." />
+    <select id="newsCategoryDropdown">
+        <option value="">--Kategori--</option>
+        <option value="Gündem">Gündem</option>
+        <option value="Dünya">Dünya</option>
+        <option value="Spor">Spor</option>
+    </select>
+    <button onclick="searchItems()">Search</button>
+</div>
 
 <div class="gallery">
-    <div class="gallery-item">
-        <img src="resim1.jpg" alt="Resim 1">
-        <h2>Başlık 1</h2>
-        <p>Alt Yazı 1</p>
-    </div>
-    <div class="gallery-item">
-        <img src="resim2.jpg" alt="Resim 2">
-        <h2>Başlık 2</h2>
-        <p>Alt Yazı 2</p>
-    </div>
-    <div class="gallery-item">
-        <img src="resim3.jpg" alt="Resim 3">
-        <h2>Başlık 3</h2>
-        <p>Alt Yazı 3</p>
-    </div>
-    <div class="gallery-item">
-        <img src="resim4.jpg" alt="Resim 4">
-        <h2>Başlık 4</h2>
-        <p>Alt Yazı 4</p>
-    </div>
-    <div class="gallery-item">
-        <img src="resim5.jpg" alt="Resim 5">
-        <h2>Başlık 5</h2>
-        <p>Alt Yazı 5</p>
+    @{
+        foreach (var item in Model.Data.Data)
+        {
+            <div class="items-list">
+                <a href="#" onclick="getItemDetail(@item.itemId)">
+                    <div class="gallery-item">
+                        <img src="@item.imageUrl" alt="@item.shortText">
+                        <h2>@item.title</h2>
+                        <p>@item.shortText</p>
+                    </div>
+                </a>
+            </div>
+        }
+    }
+</div>
+
+<div class="pagination">
+    <div class="page-numbers" id="page-numbers">
+        @for (int i = 1; i <= Model.Data.TotalPages; i++)
+        {
+            <a class="@(Model.Data.CurrentPage == i ? "active" : "")" onclick="loadPage(@i)">@i</a>
+        }
     </div>
 </div>
+}
+
+
+@section Styles {
+    <style>
+        .search-bar {
+            margin-top: 50px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .items-list a {
+            text-decoration: none;
+        }
+
+        .gallery-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+            }
+
+            .gallery-item h2 {
+                font-size: 1.5em;
+                margin: 15px 0 10px;
+            }
+
+            .gallery-item p {
+                font-size: 1em;
+                margin: 0 15px 15px;
+                color: #555;
+            }
+
+        .pagination {
+            text-align: center;
+        }
+
+            .pagination a {
+                margin: 0 10px;
+                text-decoration: none;
+                color: blue;
+                cursor: pointer;
+            }
+
+        .page-numbers {
+            margin: 20px auto 0 auto;
+            max-width: 800px;
+        }
+
+            .page-numbers a {
+                margin: 0 5px;
+                text-decoration: none;
+                color: blue;
+                cursor: pointer;
+            }
+
+                .page-numbers a.active {
+                    font-weight: bold;
+                    text-decoration: underline;
+                }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        function loadPage(pageNumber) {
+            $.ajax({
+                url: '/Home/GetItems',
+                type: 'GET',
+                data: { pageNumber: pageNumber },
+                success: function (data) {
+                    refleshContent(data);
+                }
+            });
+        }
+
+        function searchItems() {
+            var searchQuery = $('#searchTextBox').val();
+            var category = $('#newsCategoryDropdown').val();
+            $.ajax({
+                url: '/Home/GetItems',
+                type: 'GET',
+                data: {
+                    query: searchQuery,
+                    category: category
+                },
+                success: function (data) {
+                    refleshContent(data);
+                }
+            });
+        }
+        function getItemDetail(itemId) {
+            var url = '/Home/Detail?itemId=' + itemId;
+            window.open(url, '_blank');
+        }
+
+        function refleshContent(data) {
+            const response = data.data.data;
+            console.log(response)
+            var gallery = $('.gallery');
+            gallery.empty();
+
+            //İçeriği doldur
+            response.forEach(function (item) {
+                var galleryItem = '<div class="items-list">' +
+                    '<a itemid="' + item.itemId + '">' +
+                    '<div class="gallery-item">' +
+                    '<img src="' + item.imageUrl + '" alt="' + item.shortText + '">' +
+                    '<h2>' + item.title + '</h2>' +
+                    '<p>' + item.shortText + '</p>' +
+                    '</div>' +
+                    '</a>' +
+                    '</div>';
+                gallery.append(galleryItem);
+            });
+
+
+            var pageNumbers = $('#page-numbers');
+            pageNumbers.empty();
+
+            //Toplam sayfa adedi kadar dön
+            for (var i = 1; i <= data.data.totalPages; i++) {
+                //active olan sayfayın classı değiştir
+                var activeClass = data.data.currentPage === i ? 'active' : '';
+                pageNumbers.append('<a class="' + activeClass + '" onclick="loadPage(' + i + ')">' + i + '</a>');
+            }
+        }
+    </script>
+}

@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\News.Dtos\News.Dtos.csproj" />
     <ProjectReference Include="..\News.Services\News.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewComponents\" />
   </ItemGroup>
 
 </Project>

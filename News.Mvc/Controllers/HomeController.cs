@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using News.Models;
+using News.Dtos.NewsDto;
 using News.Services.Abstract;
-using System.Diagnostics;
+using System.Text.Json;
 
 namespace News.Controllers
 {
@@ -14,22 +14,24 @@ namespace News.Controllers
             _logger = logger;
             _newService = newService;
         }
-
-        public async Task<IActionResult> Index()
+        [HttpGet]
+        public async Task<IActionResult> Index(int pageNumber)
         {
-            var response = await _newService.GetAllAsync();
-            return View();
+            var response = await _newService.GetAllAsync(null,null,pageNumber, 5);
+            return View(response);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetItems(string query, string category, int pageNumber = 1)
+        {
+            var response = await _newService.GetAllAsync(query, category, pageNumber, 5);
+            return Json(response);
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public async Task<IActionResult> Detail(int itemId)
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var response = await _newService.GetDetailAsync(itemId);
+            return View(response);
         }
     }
 }

@@ -1,9 +1,11 @@
-﻿using News.Entities.Concrete;
+﻿using News.Core.BaseDto;
+using News.Entities.Concrete;
 
 namespace News.Dtos.NewsDto;
 
-public class GetNewsDto
+public class GetNewsDto : PagenationDtoBase
 {
-    public MainPage MainPage { get; set; } = new();
+    public List<MainPage.Itemlist> Data { get; set; } = new();
+
 }
 
