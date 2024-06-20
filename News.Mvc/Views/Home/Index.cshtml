@@ -11,7 +11,7 @@
         <option value="Dünya">Dünya</option>
         <option value="Spor">Spor</option>
     </select>
-    <button onclick="searchItems()">Search</button>
+    <button onclick="searchItems()">Filtrele</button>
 </div>
 
 <div class="gallery">
@@ -33,13 +33,21 @@
 
 <div class="pagination">
     <div class="page-numbers" id="page-numbers">
+        @if (Model.Data.ShowPrevious)
+        {
+            <a asp-action="Index" asp-route-pageNumber="@(Model.Data.CurrentPage - 1)" asp-route-pageSize="@Model.Data.PageSize">Önceki</a>
+        }
         @for (int i = 1; i <= Model.Data.TotalPages; i++)
         {
             <a class="@(Model.Data.CurrentPage == i ? "active" : "")" onclick="loadPage(@i)">@i</a>
         }
+        @if (Model.Data.ShowNext)
+        {
+            <a asp-action="Index" asp-route-pageNumber="@(Model.Data.CurrentPage + 1)" asp-route-pageSize="@Model.Data.PageSize">Sonraki</a>
+        }
     </div>
 </div>
-}
+
 
 
 @section Styles {
@@ -120,6 +128,7 @@
 
 @section Scripts {
     <script>
+        //Verileri Çek
         function loadPage(pageNumber) {
             $.ajax({
                 url: '/Home/GetItems',
@@ -130,7 +139,7 @@
                 }
             });
         }
-
+        //İlgili query veya categorye göre verileri çek
         function searchItems() {
             var searchQuery = $('#searchTextBox').val();
             var category = $('#newsCategoryDropdown').val();
@@ -146,11 +155,12 @@
                 }
             });
         }
+        //Detay sayfasını yeni sekmede aç
         function getItemDetail(itemId) {
             var url = '/Home/Detail?itemId=' + itemId;
             window.open(url, '_blank');
         }
-
+        //İçeriği gelen dataya göre güncelle
         function refleshContent(data) {
             const response = data.data.data;
             console.log(response)

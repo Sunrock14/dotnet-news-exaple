@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using News.Dtos.NewsDto;
 using News.Services.Abstract;
-using System.Text.Json;
 
 namespace News.Controllers
 {
@@ -17,7 +15,7 @@ namespace News.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(int pageNumber)
         {
-            var response = await _newService.GetAllAsync(null,null,pageNumber, 5);
+            var response = await _newService.GetAllAsync(null, null, pageNumber, 5);
             return View(response);
         }
         [HttpGet]
